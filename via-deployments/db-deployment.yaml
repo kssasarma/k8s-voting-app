@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+  labels:
+    app: db
+spec:
+  template:
+    metadata:
+      name: db
+      labels:
+        app: db
+    spec:
+      containers:
+        - name: db
+          image: postgres:15-alpine
+          ports:
+            - containerPort: 5432
+              name: port
+  selector:
+    matchLabels:
+      app: db
+  replicas: 1
