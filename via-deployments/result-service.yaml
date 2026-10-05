@@ -5,11 +5,11 @@ metadata:
   labels:
     app: result
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: result-service
       targetPort: 80
       port: 80
-      nodePort: 31001
+      # nodePort is not needed for LoadBalancer type
   selector:
     app: result
