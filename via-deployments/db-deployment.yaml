@@ -16,7 +16,12 @@ spec:
           image: postgres:15-alpine
           ports:
             - containerPort: 5432
-              name: port
+              name: postgres
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
   selector:
     matchLabels:
       app: db
